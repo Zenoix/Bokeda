@@ -10,6 +10,7 @@ body {
     color: #fff;
     font-family: 'Roboto', sans-serif;
     min-height: 100vh;
+    overflow: hidden;
 }
 
 h1 {
@@ -38,6 +39,54 @@ p {
 
 button {
     font-family: 'Roboto', sans-serif;
+}
+
+footer {
+    color: #808080;
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.github_link {
+    width: 10px;
+    padding-bottom: 10px;
+}
+
+.github_link img {
+    position: absolute;
+    top: 17px;
+    right: 15px;
+    width: 60px;
+    height: 60px;
+    transform-origin: 50% 50%;
+    transform: rotate(45deg);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.github_link:before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 200px;
+    height: 200px;
+    background: var(--my-pink);
+    transform-origin: 50% 50%;
+    transform: rotate(45deg);
 }
 
 .container {

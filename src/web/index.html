@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
+<div class="github_link"><a href="https://github.com/Zenoix/Bokeda" target="_blank" rel="noopener noreferrer" draggable="false"><img
+        src="images/GitHub-Mark-Light-120px-plus.png" alt="Github Repo Page" draggable="false"/></a></div>
 <div class="container">
   <div class="info container">
     <h1>Welcome to <span id="name">BOKEDA</span></h1>
@@ -24,12 +26,13 @@
   </div>
   <div id="drop_zone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);"
        ondragleave="dragOverEndHandler()">
-      <input type="file" id="file_upload" multiple accept=".csv">
+    <input type="file" id="file_upload" multiple accept=".csv">
   </div>
   <div class="btn_container">
     <button class="upload_btn" onclick="uploadFiles()">Submit</button>
     <button class="cancel_btn" onclick="cancelFiles()">Cancel</button>
   </div>
+  <footer>Jeff Wang - 2022</footer>
 </div>
 <script src="scripts/index.js"></script>
 </body>
