@@ -1,10 +1,8 @@
-let dropZone = document.getElementById("drop_zone");
+let dropZone = document.getElementById("file_upload");
 
 function dropHandler(ev) {
   console.log('File(s) dropped');
 
-  // Prevent default behavior (Prevent file from being opened)
-  ev.preventDefault();
 
   if (ev.dataTransfer.items) {
     // Use DataTransferItemList interface to access the file(s)
@@ -25,14 +23,9 @@ function dropHandler(ev) {
 }
 
 function dragOverHandler(ev) {
-  console.log('File(s) in drop zone');
-  dropZone.classList.add("highlight");
-
-  // Prevent default behavior (Prevent file from being opened)
-  ev.preventDefault();
+  dropZone.setAttribute("filehover", "1");
 }
 
 function dragOverEndHandler() {
-  console.log("File no longer in drop zone");
-  dropZone.classList.remove("highlight")
+  dropZone.removeAttribute("filehover")
 }

@@ -24,9 +24,7 @@
   </div>
   <div id="drop_zone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);"
        ondragleave="dragOverEndHandler()">
-    <form class="my_form">
-      <input type="file" id="file_upload" multiple accept=".csv" onchange="handleFiles(this.files)">
-    </form>
+      <input type="file" id="file_upload" multiple accept=".csv">
   </div>
   <div class="btn_container">
     <button class="upload_btn" onclick="uploadFiles()">Submit</button>
