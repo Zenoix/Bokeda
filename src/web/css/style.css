@@ -64,17 +64,6 @@ h3, p {
     margin-bottom: 10px;
 }
 
-#gallery {
-    margin-top: 10px;
-}
-
-#gallery img {
-    width: 150px;
-    margin-bottom: 10px;
-    margin-right: 10px;
-    vertical-align: middle;
-}
-
 .button {
     display: inline-block;
     color: #000;
@@ -89,6 +78,3 @@ h3, p {
     background: #ca55ed;
 }
 
-#fileElem {
-    display: none;
-}
