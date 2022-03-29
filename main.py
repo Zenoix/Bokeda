@@ -1,5 +1,4 @@
-
-from src.data_collection import start_eel
+from src.backend import start_eel
 
 
 if __name__ == "__main__":
