@@ -14,6 +14,7 @@ function dragOverEndHandler() {
 
 function uploadFiles() {
   let files = dropZone.files;
+  let prompt;
   if (files.length === 0) {
     alert("No files uploaded. Please select or drop in your csv files.");
     return;
@@ -28,7 +29,11 @@ function uploadFiles() {
     }
     fileNames += fileName + "\n";
   }
-  confirm("Uploaded file(s):\n---------------------\n" + fileNames + "\nDo you wish to continue?");
+  prompt = "Uploaded file(s):\n---------------------\n" + fileNames + "\nDo you wish to continue?";
+  if (confirm(prompt)){
+    // TODO handle file upload to backend
+    return;
+  }
 }
 
 function cancelFiles(cancelConfirm = true) {
