@@ -28,7 +28,7 @@ function uploadFiles() {
     }
     fileNames += fileName + "\n";
   }
-  confirm("Uploaded file(s) :\n____________________\n" + fileNames + "\nDo you wish to continue?");
+  confirm("Uploaded file(s):\n---------------------\n" + fileNames + "\nDo you wish to continue?");
 }
 
 function cancelFiles(cancelConfirm = true) {
