@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Rubik:wght@700&display=swap');
+
+:root {
+    --my-pink: #ca78e3;
+    --my-blue: #70ecff;
+}
+
+body {
+    background-color: #121212;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 45px;
+    margin-top: 100px;
+    margin-bottom: 5px;
+}
+
+h2 {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+
+h4 {
+    margin-top: 10px;
+}
+
+p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    line-height: 1.4;
+    font-size: 18px;
+}
+
+button {
+    font-family: 'Roboto', sans-serif;
+}
+
+footer {
+    color: #808080;
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.github_link {
+    width: 10px;
+    padding-bottom: 10px;
+}
+
+.github_link img {
+    position: absolute;
+    top: 17px;
+    right: 15px;
+    width: 60px;
+    height: 60px;
+    transform-origin: 50% 50%;
+    transform: rotate(45deg);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.github_link:before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 200px;
+    height: 200px;
+    background: var(--my-pink);
+    transform-origin: 50% 50%;
+    transform: rotate(45deg);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.info {
+    width: 50vw;
+}
+
+#name {
+    background: -webkit-linear-gradient(top left, var(--my-blue), var(--my-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Rubik', sans-serif;
+}
+
+#drop_zone {
+    position: relative;
+    display: flex;
+}
+
+#drop_zone input {
+    border: 4px solid var(--my-blue);
+    border-radius: 20px;
+    outline: 3px dashed #92b0b3;
+    outline-offset: -12px;
+    padding: 100px 150px 120px 250px;
+    text-align: center !important;
+    width: 300px;
+}
+
+#drop_zone input:hover, #file_upload[filehover] {
+    background: #1c1c21;
+    cursor: pointer;
+}
+
+#drop_zone:before {
+    position: absolute;
+    bottom: 95px;
+    left: 245px;
+    content: " (or) Drag and Drop files here. ";
+    color: var(--my-blue);
+    font-weight: 700;
+}
+
+.btn_container {
+    width: 700px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: end;
+}
+
+.upload_btn, .cancel_btn {
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.upload_btn {
+    margin: 5px;
+    padding: 10px 25px;
+    background-color: var(--my-pink);
+    border-radius: 3px;
+    font-weight: 600;
+}
+
+.upload_btn:hover {
+    background-color: #c64deb;
+}
+
+.cancel_btn {
+  background-color: inherit;
+  color: #fff;
+  display: inline-block;
+  padding: 10px 20px;
+  font-weight: 400;
+    text-decoration: underline;
+}
+
+.cancel_btn:hover {
+    color: #d1d1d1
+}
