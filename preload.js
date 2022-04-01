@@ -3,5 +3,4 @@
 const { contextBridge, ipcRenderer } = require('electron')
 
 contextBridge.exposeInMainWorld('electronAPI', {
-    confirmFileUpload: () => ipcRenderer.invoke('dialog:confirmFileUpload')
 });

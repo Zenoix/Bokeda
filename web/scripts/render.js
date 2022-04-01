@@ -28,14 +28,13 @@ function uploadFiles() {
       return;
     }
     fileNames += fileName + "\n";
-    console.log(files[i].path)
   }
+  
   prompt = "Uploaded file(s):\n---------------------\n" + fileNames + "\nDo you wish to continue?";
-  let result = electronAPI.confirmFileUpload()
-  // if (confirm(prompt)){
-  //   // TODO handle file upload to backend
-  //   return;
-  // }
+  if (confirm(prompt)){
+    // TODO handle file upload to backend
+    console.log("hi")
+  }
 }
 
 function cancelFiles(cancelConfirm = true) {
