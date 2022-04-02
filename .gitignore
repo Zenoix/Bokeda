@@ -114,6 +114,9 @@ venv.bak/
 .spyderproject
 .spyproject
 
+# Jetbrains project settings
+.idea/
+
 # Rope project settings
 .ropeproject
 
@@ -130,3 +133,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+node_modules

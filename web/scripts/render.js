@@ -29,10 +29,11 @@ function uploadFiles() {
     }
     fileNames += fileName + "\n";
   }
+  
   prompt = "Uploaded file(s):\n---------------------\n" + fileNames + "\nDo you wish to continue?";
   if (confirm(prompt)){
     // TODO handle file upload to backend
-    return;
+    console.log("hi")
   }
 }
 
@@ -52,4 +53,15 @@ function cancelFiles(cancelConfirm = true) {
     dropZone.type = '';
     dropZone.type = 'file';
   }
+}
+
+test = 'Hello'
+async function makePostRequest(test) {
+  axios.post("http://127.0.0.1:5000/data", test)
+      .then(function (response) {
+    console.log("It says: ", response.data);
+  })
+      .catch(function (error) {
+        console.log(error);
+      });
 }
