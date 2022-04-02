@@ -13,6 +13,14 @@ const createWindow = () => {
         }
     })
 
+    let python = require('child_process').spawn('py', ['./main.py']);
+    python.stdout.on('data', function (data) {
+        console.log("data: ", data.toString());
+    });
+    python.stderr.on('data', (data) => {
+        console.log(`stderr: ${data}`); // when error
+    });
+
     // and load the index.html of the app.
     mainWindow.loadFile('web/index.html')
 
