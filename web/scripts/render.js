@@ -15,6 +15,7 @@ function dragOverEndHandler() {
 function uploadFiles() {
   let files = dropZone.files;
   let prompt;
+  let filePathsObj = {filePaths: []};
   if (files.length === 0) {
     alert("No files uploaded. Please select or drop in your csv files.");
     return;
@@ -28,12 +29,13 @@ function uploadFiles() {
       return;
     }
     fileNames += fileName + "\n";
+    filePathsObj["filePaths"].push(files[i].path)
   }
-  
+
   prompt = "Uploaded file(s):\n---------------------\n" + fileNames + "\nDo you wish to continue?";
   if (confirm(prompt)){
-    // TODO handle file upload to backend
-    console.log("hi")
+    electronAPI.uploadFiles(filePathsObj)
+    window.location.href = "datahandling.html";
   }
 }
 
@@ -53,15 +55,4 @@ function cancelFiles(cancelConfirm = true) {
     dropZone.type = '';
     dropZone.type = 'file';
   }
-}
-
-test = 'Hello'
-async function makePostRequest(test) {
-  axios.post("http://127.0.0.1:5000/data", test)
-      .then(function (response) {
-    console.log("It says: ", response.data);
-  })
-      .catch(function (error) {
-        console.log(error);
-      });
 }
