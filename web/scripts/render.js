@@ -15,6 +15,7 @@ function dragOverEndHandler() {
 function uploadFiles() {
   let files = dropZone.files;
   let prompt;
+  let filePaths = [];
   if (files.length === 0) {
     alert("No files uploaded. Please select or drop in your csv files.");
     return;
@@ -28,11 +29,12 @@ function uploadFiles() {
       return;
     }
     fileNames += fileName + "\n";
+    filePaths.push(files[i].path)
   }
   
   prompt = "Uploaded file(s):\n---------------------\n" + fileNames + "\nDo you wish to continue?";
   if (confirm(prompt)){
-    electronAPI.uploadFiles(prompt)
+    electronAPI.uploadFiles(filePaths)
   }
 }
 

@@ -1,6 +1,8 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow, ipcMain} = require('electron')
 const path = require('path')
+const { exec } = require('child_process');
+const axios = require('axios').default;
 
 const createWindow = () => {
     // Create the browser window.
@@ -12,6 +14,15 @@ const createWindow = () => {
             preload: path.join(__dirname, 'preload.js')
         }
     })
+
+    let python = require('child_process').spawn('python', ['./app.py']);
+    python.stdout.on('data', function (data) {
+        console.log("data: ", data.toString());
+    });
+    python.stderr.on('data', (data) => {
+        console.log(`stderr: ${data}`); // when error
+    });
+
     // and load the index.html of the app.
     mainWindow.loadFile('web/index.html')
 
@@ -19,8 +30,19 @@ const createWindow = () => {
     mainWindow.webContents.openDevTools()
 }
 
-function uploadFiles(event, files){
-    console.log(files);
+async function communicateWithFlask () {
+    axios.post('http://127.0.0.1:5000/test')
+        .then(function (response) {
+        console.log("It says: ", response.data);
+    })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
+
+function uploadFiles(event, filePaths){
+    communicateWithFlask()
+    console.log(filePaths);
 }
 
 
@@ -42,6 +64,14 @@ app.whenReady().then(() => {
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
 app.on('window-all-closed', () => {
+    exec('taskkill /f /t /im app.exe', (err, stdout, stderr) => {
+        if (err) {
+            console.log(err)
+            return;
+        }
+        console.log(`stdout: ${stdout}`);
+        console.log(`stderr: ${stderr}`);
+    });
     if (process.platform !== 'darwin') app.quit()
 })
 
