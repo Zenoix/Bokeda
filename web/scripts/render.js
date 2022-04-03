@@ -35,6 +35,7 @@ function uploadFiles() {
   prompt = "Uploaded file(s):\n---------------------\n" + fileNames + "\nDo you wish to continue?";
   if (confirm(prompt)){
     electronAPI.uploadFiles(filePathsObj)
+    window.location.href = "datahandling.html";
   }
 }
 
