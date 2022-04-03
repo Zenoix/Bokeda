@@ -30,13 +30,13 @@ const createWindow = () => {
     mainWindow.webContents.openDevTools()
 }
 
-async function communicateWithFlask () {
-    axios.post('http://127.0.0.1:5000/test')
+function communicateWithFlask () {
+    axios.get('http://127.0.0.1:5000/test')
         .then(function (response) {
         console.log("It says: ", response.data);
     })
         .catch(function (error) {
-            console.log(error);
+            console.log("There was an error: ", error);
         });
 }
 
