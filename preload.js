@@ -3,4 +3,5 @@
 const { contextBridge, ipcRenderer } = require('electron')
 
 contextBridge.exposeInMainWorld('electronAPI', {
+    uploadFiles: (files) => ipcRenderer.send("upload-files", files)
 });

@@ -32,8 +32,7 @@ function uploadFiles() {
   
   prompt = "Uploaded file(s):\n---------------------\n" + fileNames + "\nDo you wish to continue?";
   if (confirm(prompt)){
-    // TODO handle file upload to backend
-    console.log("hi")
+    electronAPI.uploadFiles(prompt)
   }
 }
 

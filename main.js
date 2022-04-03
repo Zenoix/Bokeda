@@ -1,5 +1,5 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow, dialog, ipcMain} = require('electron')
+const {app, BrowserWindow, ipcMain} = require('electron')
 const path = require('path')
 
 const createWindow = () => {
@@ -19,11 +19,16 @@ const createWindow = () => {
     mainWindow.webContents.openDevTools()
 }
 
+function uploadFiles(event, files){
+    console.log(files);
+}
+
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
+    ipcMain.on("upload-files", uploadFiles)
     createWindow()
 
     app.on('activate', () => {
