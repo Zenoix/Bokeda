@@ -1,7 +1,7 @@
 from flask import Flask, request
 from flask_restful import Resource, Api
 
-from database import connect_to_database
+import data_handling
 
 app = Flask(__name__)
 api = Api(app)
@@ -10,7 +10,6 @@ api = Api(app)
 class DataCollection(Resource):
     def put(self):
         file_paths = request.json
-        connect_to_database()
         return file_paths
 
 
