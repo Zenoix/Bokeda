@@ -30,19 +30,15 @@ const createWindow = () => {
     mainWindow.webContents.openDevTools()
 }
 
-function communicateWithFlask () {
-    axios.get('http://127.0.0.1:5000/test')
+function uploadFiles(event, filePaths){
+    axios.put('http://127.0.0.1:5000/data', filePaths)
         .then(function (response) {
-        console.log("It says: ", response.data);
-    })
+            console.log("It says: ", response.data);
+        })
         .catch(function (error) {
             console.log("There was an error: ", error);
         });
-}
 
-function uploadFiles(event, filePaths){
-    communicateWithFlask()
-    console.log(filePaths);
 }
 
 
