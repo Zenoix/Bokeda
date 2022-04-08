@@ -48,16 +48,21 @@ app.layout = html.Div([
                 "internet unless your local machine is compromised."])
         ], className="info container"),
         dcc.Upload(
-            id='drop_zone',
-            children=html.Div([
-                'Drag and Drop or ',
-                html.A('Select Files')
-            ]),
-
-            # Allow multiple files to be uploaded
-            multiple=True,
-            accept=".csv, .tsv, .xlsx, .xls, .txt"
-        ),
+                id='drop_zone_container',
+                children=html.Div(id='drop_zone', children=[
+                    'Drag and Drop or ',
+                    html.A('Select Files')
+                ]),
+                style={
+                    'lineHeight': '60px',
+                    'borderRadius': '5px',
+                    'textAlign': 'center',
+                    'margin': '10px'
+                },
+                # Allow multiple files to be uploaded
+                multiple=True,
+                accept=".csv, .tsv, .xlsx, .xls, .txt"
+            ),
         html.Div(id='output-data-upload'),
     ], className="container")
 ])
@@ -70,8 +75,8 @@ def parse_contents(filename):
 
 
 @app.callback(Output('output-data-upload', 'children'),
-              Input('drop_zone', 'contents'),
-              State('drop_zone', 'filename'))
+              Input('drop_zone_container', 'contents'),
+              State('drop_zone_container', 'filename'))
 def update_output(list_of_contents, list_of_names):
     if list_of_contents is not None:
         return [parse_contents(file_name) for file_name in list_of_names]
