@@ -74,14 +74,25 @@ p {
     text-align: center;
     width: 30vw;
     height: 200px;
+    line-height: 190px;
     cursor: pointer;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                          supported by Chrome, Edge, Opera and Firefox */
 }
 
-#drop_zone a{
+#drop_zone:hover {
+    background-color: #1e1e1e;
+}
+
+#drop_zone a {
     font-weight: 800;
 }
 
-#drop_zone a:hover{
+#drop_zone a:hover {
     color: var(--my-blue)
 }
 

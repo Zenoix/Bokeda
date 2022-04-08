@@ -53,12 +53,7 @@ app.layout = html.Div([
                     'Drag and Drop or ',
                     html.A('Select Files')
                 ]),
-                style={
-                    'lineHeight': '60px',
-                    'borderRadius': '5px',
-                    'textAlign': 'center',
-                    'margin': '10px'
-                },
+                style_active={"backgroundColor": "blue"},
                 # Allow multiple files to be uploaded
                 multiple=True,
                 accept=".csv, .tsv, .xlsx, .xls, .txt"
