@@ -1,8 +1,10 @@
 import base64
+import io
 
 # Run this app with `python app.py` and
 # visit http://127.0.0.1:8050/ in your web browser.
 from dash import Dash, html, dcc
+from dash.dependencies import Input, Output, State
 
 app = Dash(__name__)
 
@@ -55,9 +57,25 @@ app.layout = html.Div([
             # Allow multiple files to be uploaded
             multiple=True,
             accept=".csv, .tsv, .xlsx, .xls, .txt"
-        )
+        ),
+        html.Div(id='output-data-upload'),
     ], className="container")
 ])
+
+
+def parse_contents(filename):
+    return html.Div([
+        html.H5(filename)
+    ])
+
+
+@app.callback(Output('output-data-upload', 'children'),
+              Input('drop_zone', 'contents'),
+              State('drop_zone', 'filename'))
+def update_output(list_of_contents, list_of_names):
+    if list_of_contents is not None:
+        return [parse_contents(file_name) for file_name in list_of_names]
+
 
 if __name__ == '__main__':
     app.run_server(debug=True)
