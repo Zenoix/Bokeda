@@ -48,16 +48,15 @@ app.layout = html.Div([
                 "internet unless your local machine is compromised."])
         ], className="info container"),
         dcc.Upload(
-                id='drop_zone_container',
-                children=html.Div(id='drop_zone', children=[
-                    'Drag and Drop or ',
-                    html.A('Select Files')
-                ]),
-                style_active={"backgroundColor": "blue"},
-                # Allow multiple files to be uploaded
-                multiple=True,
-                accept=".csv, .tsv, .xlsx, .xls, .txt"
-            ),
+            id='drop_zone_container',
+            children=html.Div(id='drop_zone', children=[
+                'Drag and Drop or ',
+                html.A('Select Files')
+            ]),
+            # Allow multiple files to be uploaded
+            multiple=True,
+            accept=".csv, .tsv, .xlsx, .xls, .txt"
+        ),
         html.Div(id='output-data-upload'),
     ], className="container")
 ])
@@ -65,7 +64,7 @@ app.layout = html.Div([
 
 def parse_contents(filename):
     return html.Div([
-        html.H5(filename)
+        html.P(filename)
     ])
 
 
@@ -74,7 +73,8 @@ def parse_contents(filename):
               State('drop_zone_container', 'filename'))
 def update_output(list_of_contents, list_of_names):
     if list_of_contents is not None:
-        return [parse_contents(file_name) for file_name in list_of_names]
+        files = [parse_contents(file_name) for file_name in list_of_names]
+        return [html.H4("Uploaded Files: ", style={"marginTop": "18px", "marginBottom": "10px"}), html.Hr(), *files]
 
 
 if __name__ == '__main__':
